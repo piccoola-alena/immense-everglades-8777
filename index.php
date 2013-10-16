@@ -1,6 +1,9 @@
 <?php
 
-require '/src/facebook.php';
+<div id="fb-root"></div>
+<script>
+
+</script>
 
 
 
