@@ -13,17 +13,65 @@ echo "Hello World";
 
 <div id="fb-root"></div>
 <script>
+
   window.fbAsyncInit = function() {
     // init the FB JS SDK
     FB.init({
-      appId      : '1400569390162590',                        // App ID from the app dashboard
-      channelUrl : '//http://immense-everglades-8777.herokuapp.com//channel.html', // Channel file for x-domain comms
-      status     : true,                                 // Check Facebook Login status
-      xfbml      : true                                  // Look for social plugins on the page
+      appId      : '1400569390162590',   
+      channelUrl : '//http://immense-everglades-8777.herokuapp.com//channel.html',
+      status     : true,                               
+      xfbml      : true                                 
     });
 
-    // Additional initialization code such as adding Event Listeners goes here
+   FB.init(
+        {
+          appId      : '171298766297727',
+          status     : true, // check login status
+          cookie     : true, // enable cookies to allow the server to access the session
+          oauth      : true, // enable OAuth 2.0
+          xfbml      : false // dont parse XFBML
+        });
+ 
+        //Get the current login status.
+        FB.getLoginStatus(function(loginStatusResponse)
+        {
+            if(loginStatusResponse.authResponse) //There is an authresponse, the user is already logged in and authenticated
+            {
+                logUserName();
+                logFriends();
+ 
+            } else { //The user was not logged in, allow him to.
+                FB.login(function(loginResponse)
+                {
+                    if(loginResponse.authRespsonse) //Did he login successfully?
+                    {
+                        logUserName();
+                        logFriends();
+                    }
+                });
+            }
+        });
+ 
+        function logUserName() //When we are logged in this shows //our name.
+        {
+            FB.api('/me', function(meResponse)  //Do a graph //request to /me
+            {
+                alert(meResponse.id + " " + meResponse.first_name); //Show the response
+            });
+        }
+ 
+        function logFriends()   //When we are logged in this //shows our friends.
+        {
+            FB.api('/me/friends', function(friendResponse) //Do a //graph request to my friends.
+            {
+                for(var i = 0; i < friendResponse.data.length; i++) //Loop over all my friends
+                    alert(friendResponse.data[i].id + " " + friendResponse.data[i].name);
+            });
+        }
+ 
   };
+
+
 
   // Load the SDK asynchronously
   (function(d, s, id){
