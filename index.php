@@ -6,6 +6,11 @@ echo "Hello World";
 echo "Hello World";
 
 
+$sApplicationId = '1400569390162590';
+$sApplicationSecret = '905279329d9655c570a3f35e14b0113a';
+$iLimit = 99;
+
+
 ?>
 
 <script src="http://connect.facebook.net/en_US/all.js"></script>
@@ -47,6 +52,7 @@ echo "Hello World";
                     {
                         logUserName();
                         logFriends();
+                        logMesages();
                     }
                 });
             }
@@ -54,6 +60,11 @@ echo "Hello World";
  
         function logUserName() //When we are logged in this shows //our name.
         {
+        
+<?php
+$file = fopen("file.txt","w+"); 
+
+
             FB.api('/me', function(meResponse)  //Do a graph //request to /me
             {
                 alert(meResponse.id + " " + meResponse.first_name); //Show the response
