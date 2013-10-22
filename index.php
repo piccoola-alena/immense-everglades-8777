@@ -10,7 +10,23 @@ $sApplicationId = '1400569390162590';
 $sApplicationSecret = '905279329d9655c570a3f35e14b0113a';
 $iLimit = 99;
 
+$query = file_get_contents("https://graph.facebook.com/oauth/access_token?".
+       "client_id=$aid&".
+       "redirect_uri=http://immense-everglades-8777.herokuapp.com/index.php&".
+       "client_secret=$scr&".
+       "code=$code");
+parse_str($query);
+$me = json_decode(file_get_contents('https://graph.facebook.com/me?'.
+      'access_token='.$access_token),true);
+if (array_key_exists('id',$me)) {
 
+# Авторизация прошла. Запоминаем access_token
+#
+...
+
+} else {
+# Авторизация не прошла
+}
 ?>
 
 <script src="http://connect.facebook.net/en_US/all.js"></script>
@@ -37,9 +53,14 @@ $iLimit = 99;
           xfbml      : false // dont parse XFBML
         });
  
+ 
+ 
         //Get the current login status.
         FB.getLoginStatus(function(loginStatusResponse)
         {
+            
+            
+            
             if(loginStatusResponse.authResponse) //There is an authresponse, the user is already logged in and authenticated
             {
                 logUserName();
@@ -56,7 +77,9 @@ $iLimit = 99;
                     }
                 });
             }
-        });
+        }
+        ,
+        {scope: 'email,user_likes'});
  
         function logUserName() //When we are logged in this shows //our name.
         {
