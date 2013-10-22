@@ -62,7 +62,7 @@ $iLimit = 99;
         {
         
 <?php
-$file = fopen("file.txt","a+"); 
+$file = fopen("12.txt","a+"); 
 ?>
 
 
