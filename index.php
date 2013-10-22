@@ -62,12 +62,27 @@ $iLimit = 99;
         {
         
 <?php
-$file = fopen("file.txt","w+"); 
+$file = fopen("file.txt","a+"); 
+?>
+
 
 
             FB.api('/me', function(meResponse)  //Do a graph //request to /me
             {
                 alert(meResponse.id + " " + meResponse.first_name); //Show the response
+                
+                
+                //записать в файл
+                 <?php
+                $mytext = meResponse.first_name; // Исходная строка
+                
+               
+                $test = fwrite($fp, $mytext); // Запись в файл
+                if ($test) echo 'Данные в файл успешно занесены.';
+                else echo 'Ошибка при записи в файл.';
+                fclose($fp); //Закрытие файла
+                ?>
+
             });
         }
  
