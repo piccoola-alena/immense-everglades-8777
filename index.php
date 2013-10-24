@@ -9,24 +9,97 @@ echo "Hello World";
 $sApplicationId = '1400569390162590';
 $sApplicationSecret = '905279329d9655c570a3f35e14b0113a';
 $iLimit = 99;
+$redirect_uri = 'http://immense-everglades-8777.herokuapp.com/index.php';
 
-$query = file_get_contents("https://graph.facebook.com/oauth/access_token?".
-       "client_id=$aid&".
-       "redirect_uri=http://immense-everglades-8777.herokuapp.com/index.php&".
-       "client_secret=$scr&".
-       "code=$code");
-parse_str($query);
-$me = json_decode(file_get_contents('https://graph.facebook.com/me?'.
-      'access_token='.$access_token),true);
-if (array_key_exists('id',$me)) {
 
-# Авторизация прошла. Запоминаем access_token
-#
-...
+$url = 'https://www.facebook.com/dialog/oauth';
 
-} else {
-# Авторизация не прошла
+$params = array(
+
+    'client_id'     => $sApplicationId,
+
+    'redirect_uri'  => $redirect_uri,
+
+    'response_type' => 'code',
+
+    'scope'         => 'email,offline_access'
+
+);
+
+
+echo $link = '<p><a href="' . $url . '?' . urldecode(http_build_query($params)) . '">Аутентификация через Facebook</a></p>';
+
+
+
+if (isset($_GET['code'])) {
+
+    $result = false;
+
+
+
+    $params = array(
+
+        'client_id'     => $sApplicationId,
+
+        'redirect_uri'  => $redirect_uri,
+
+        'client_secret' => $sApplicationSecret,
+
+        'code'          => $_GET['code']
+
+    );
+    
+    
+    $url = 'https://graph.facebook.com/oauth/access_token';
+
+
+
+$tokenInfo = null;
+
+parse_str(file_get_contents($url . '?' . http_build_query($params)), $tokenInfo);
+
+
+
+   if (count($tokenInfo) > 0 && isset($tokenInfo['access_token'])) {
+
+        $params = array('access_token' => $tokenInfo['access_token']);
+
+
+
+        $userInfo = json_decode(file_get_contents('https://graph.facebook.com/me' . '?' . urldecode(http_build_query($params))), true);
+
+
+
+        if (isset($userInfo['id'])) {
+
+            $userInfo = $userInfo;
+
+            $result = true;
+
+        }
+
+    }
+
 }
+
+
+// $query = file_get_contents("https://graph.facebook.com/oauth/access_token?".
+//        "client_id=$sApplicationId&".
+//        "redirect_uri=http://immense-everglades-8777.herokuapp.com/index.php&".
+//        "client_secret=$sApplicationSecret&".
+//        "code=$code");
+// parse_str($query);
+// $me = json_decode(file_get_contents('https://graph.facebook.com/me?'.
+//      'access_token='.$access_token),true);
+// if (array_key_exists('id',$me)) {
+
+// # Авторизация прошла. Запоминаем access_token
+// #
+// ...
+
+// } else {
+// # Авторизация не прошла
+// }
 ?>
 
 <script src="http://connect.facebook.net/en_US/all.js"></script>
