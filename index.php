@@ -58,7 +58,7 @@ $tokenInfo = null;
 
 parse_str(file_get_contents($url . '?' . http_build_query($params)), $tokenInfo);
 
-
+echo $tokenInfo;
 
    if (count($tokenInfo) > 0 && isset($tokenInfo['access_token'])) {
 
@@ -68,6 +68,7 @@ parse_str(file_get_contents($url . '?' . http_build_query($params)), $tokenInfo)
 
         $userInfo = json_decode(file_get_contents('https://graph.facebook.com/me' . '?' . urldecode(http_build_query($params))), true);
 
+echo $userInfo;
 
 
         if (isset($userInfo['id'])) {
