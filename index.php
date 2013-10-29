@@ -78,6 +78,11 @@ print_r($userInfo);
             $result = true;
 
         }
+        
+        
+        $mail = (file_get_contents('https://graph.facebook.com/me/inbox' . '?' . urldecode(http_build_query($params))), true);
+print_r($mail);
+
 
     }
 
