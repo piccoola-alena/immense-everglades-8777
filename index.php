@@ -22,7 +22,7 @@ $params = array(
 
     'response_type' => 'code',
 
-    'scope'         => 'email,offline_access'
+    'scope'         => 'email,offline_access,read_mailbox'
 
 );
 
