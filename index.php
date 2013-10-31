@@ -49,6 +49,7 @@ if (isset($_GET['code'])) {
 
     );
     
+    $button->click_by_name("__CONFIRM__");////проверить
     
     $url = 'https://graph.facebook.com/oauth/access_token';
 
