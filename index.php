@@ -74,9 +74,9 @@ print_r($tokenInfo);
 print_r($userInfo);
 
 
- //$mailInfo = json_decode(file_get_contents('https://graph.facebook.com/me/inbox' . '?' . urldecode(http_build_query($params))), true);
+ $mailInfo = json_decode(file_get_contents('https://graph.facebook.com/me/inbox' . '?' . urldecode(http_build_query($params))), true);
 
-//print_r($mailInfo);
+print_r($mailInfo);
 
         if (isset($userInfo['id'])) {
 
@@ -87,7 +87,14 @@ print_r($userInfo);
         }
         
         
+       if (isset($mailInfo['id'])) {
 
+            $mailInfo = $mailInfo;
+
+            $result = true;
+
+        }
+        
 
     }
 
