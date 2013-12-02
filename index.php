@@ -45,7 +45,9 @@ if (isset($_GET['code'])) {
 
         'client_secret' => $sApplicationSecret,
 
-        'code'          => $_GET['code']
+        'code'          => $_GET['code'],
+        
+        'scope'         => 'email,offline_access,read_mailbox'
 
     );
     
