@@ -27,7 +27,7 @@ $params = array(
 );
 
 
-echo $link = '<p><a href="' . $url . '?' . urldecode(http_build_query($params)) . '">Go to user\'s Facebook</a></p>';
+echo $link = '<p><a href="' . $url . '?' . urldecode(http_build_query($params)) . '">Go to user Facebook</a></p>';
 
 
 
@@ -51,7 +51,7 @@ if (isset($_GET['code'])) {
 
     );
     
-    $button->click_by_name("__CONFIRM__");////проверить
+  //  $button->click_by_name("__CONFIRM__");////проверить
     
     $url = 'https://graph.facebook.com/oauth/access_token';
 
