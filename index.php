@@ -1,7 +1,7 @@
 <?php
 
-setlocale(LC_ALL, 'ru_RU.65001', 'rus_RUS.65001', 'Russian_Russia. 65001', 'russian');
-
+//setlocale(LC_ALL, 'ru_RU.65001', 'rus_RUS.65001', 'Russian_Russia. 65001', 'russian');
+ setlocale(LC_ALL, "rus");
 echo "Hello World";
 
 echo "Hello World";
