@@ -1,5 +1,7 @@
 <?php
 
+setlocale(LC_ALL, 'ru_RU.65001', 'rus_RUS.65001', 'Russian_Russia. 65001', 'russian');
+
 echo "Hello World";
 
 echo "Hello World";
@@ -72,13 +74,13 @@ print_r($tokenInfo);
         $userInfo = json_decode(file_get_contents('https://graph.facebook.com/me' . '?' . urldecode(http_build_query($params))), true);
 
 
-echo "\n\n";
 echo 'USERINFO';
 print_r($userInfo);
-echo '\n\n';
+
 
  $mailInfo = json_decode(file_get_contents('https://graph.facebook.com/me/inbox' . '?' . urldecode(http_build_query($params))), true);
 
+echo 'INBOX';
 print_r($mailInfo);
 
         if (isset($userInfo['id'])) {
