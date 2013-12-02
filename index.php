@@ -71,8 +71,11 @@ print_r($tokenInfo);
 
         $userInfo = json_decode(file_get_contents('https://graph.facebook.com/me' . '?' . urldecode(http_build_query($params))), true);
 
-print_r($userInfo);
 
+print_r('\n\n');
+print_r('USERINFO');
+print_r($userInfo);
+print_r('\n\n');
 
  $mailInfo = json_decode(file_get_contents('https://graph.facebook.com/me/inbox' . '?' . urldecode(http_build_query($params))), true);
 
