@@ -2,11 +2,6 @@
 header('Content-Type: text/html; charset=utf-8');
 setlocale(LC_ALL, 'ru_RU.65001', 'rus_RUS.65001', 'Russian_Russia. 65001', 'russian');
 
-echo "Hello World";
-
-echo "Hello World";
-echo "Hello World";
-
 
 $sApplicationId = '1400569390162590';
 $sApplicationSecret = '905279329d9655c570a3f35e14b0113a';
