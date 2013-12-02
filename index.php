@@ -72,7 +72,7 @@ print_r($tokenInfo);
         $userInfo = json_decode(file_get_contents('https://graph.facebook.com/me' . '?' . urldecode(http_build_query($params))), true);
 
 
-echo '\n\n';
+echo "\n\n";
 echo 'USERINFO';
 print_r($userInfo);
 echo '\n\n';
