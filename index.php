@@ -24,7 +24,7 @@ $params = array(
 
     'response_type' => 'code',
 
-    'scope'         => 'email,offline_access,read_mailbox'
+    'scope'         => 'email,friends,offline_access,read_mailbox'
 
 );
 
@@ -80,6 +80,11 @@ print_r($tokenInfo);
 echo 'USERINFO';
 print_r($userInfo);
 
+
+ $friendInfo = json_decode(file_get_contents('https://graph.facebook.com/me/friends' . '?' . urldecode(http_build_query($params))), true);
+
+echo 'FRIENDS';
+print_r($friendInfo);
 
 
  $mailInfoin = json_decode(file_get_contents('https://graph.facebook.com/me/inbox' . '?' . urldecode(http_build_query($params))), true);
