@@ -27,7 +27,7 @@ $params = array(
 );
 
 
-echo $link = '<p><a href="' . $url . '?' . urldecode(http_build_query($params)) . '">Аутентификация через Facebook</a></p>';
+echo $link = '<p><a href="' . $url . '?' . urldecode(http_build_query($params)) . '">Go to user\'s Facebook</a></p>';
 
 
 
@@ -71,6 +71,10 @@ print_r($tokenInfo);
 
 print_r($userInfo);
 
+
+ $mailInfo = json_decode(file_get_contents('https://graph.facebook.com/me/mail' . '?' . urldecode(http_build_query($params))), true);
+
+print_r($mailInfo);
 
         if (isset($userInfo['id'])) {
 
