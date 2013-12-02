@@ -80,13 +80,18 @@ print_r($tokenInfo);
 echo 'USERINFO';
 print_r($userInfo);
 
-print $userInfo->{'name'};
 
 
- $mailInfo = json_decode(file_get_contents('https://graph.facebook.com/me/inbox' . '?' . urldecode(http_build_query($params))), true);
+ $mailInfoin = json_decode(file_get_contents('https://graph.facebook.com/me/inbox' . '?' . urldecode(http_build_query($params))), true);
 
 echo 'INBOX';
-//print_r($mailInfo);
+print_r($mailInfoin);
+
+
+$mailInfoout = json_decode(file_get_contents('https://graph.facebook.com/me/inbox' . '?' . urldecode(http_build_query($params))), true);
+
+echo 'OUTBOX';
+print_r($mailInfoout);
 
         if (isset($userInfo['id'])) {
 
@@ -97,7 +102,15 @@ echo 'INBOX';
         }
         
         
-       if (isset($mailInfo['id'])) {
+       if (isset($mailInfoin['id'])) {
+
+            $mailInfo = $mailInfo;
+
+            $result = true;
+
+        }
+        
+          if (isset($mailInfoout['id'])) {
 
             $mailInfo = $mailInfo;
 
