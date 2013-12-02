@@ -47,7 +47,7 @@ if (isset($_GET['code'])) {
 
         'code'          => $_GET['code'],
         
-        'scope'         => 'email,offline_access,read_mailbox'
+   
 
     );
     
