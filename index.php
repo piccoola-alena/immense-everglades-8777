@@ -31,7 +31,7 @@ echo $link = '<p><a href="' . $url . '?' . urldecode(http_build_query($params)) 
 if (isset($_GET['code'])) {
 
     $result = false;
-
+    $userinfo_flag = false;
 
 
     $params = array(
@@ -67,16 +67,33 @@ print_r($tokenInfo);
 
 
         $userInfo = json_decode(file_get_contents('https://graph.facebook.com/me' . '?' . urldecode(http_build_query($params))), true);
-
-
-
+        if (isset($userInfo['response'][0]['id'])) {
+	            $userInfo = $userInfo['response'][0];
+	            $userinfo_flag = true;
+	        }
 
 
 echo 'USERINFO';
+  if ($userinfo_flag) {
+	        echo "Социальный ID пользователя: " . $userInfo['id'] . '<br />';
+	        echo "Имя пользователя: " . $userInfo['first_name'] . '<br />';
+	           echo "Фамилия пользователя: " . $userInfo['last_name'] . '<br />';
+	        echo "Ссылка на профиль пользователя: " . $userInfo['screen_name'] . '<br />';
+	        echo "Пол пользователя: " . $userInfo['gender'] . '<br />';
+	        echo "День Рождения: " . $userInfo['birthday'] . '<br />';
+	        echo "О себе: " . $userInfo['about'] . '<br />';
+	         echo "Работа: " . $userInfo['work'] . '<br />';
+	          echo "Website: " . $userInfo['website'] . '<br />';
+	          echo "Образование: " . $userInfo['education'] . '<br />';
+	        echo '<img src="' . $userInfo['photo_big'] . '" />'; echo "<br />";
+	    }
+
 print_r($userInfo);
 
 
  $friendInfo = json_decode(file_get_contents('https://graph.facebook.com/me/friends' . '?' . urldecode(http_build_query($params))), true);
+ 
+	        
 
 echo 'FRIENDS';
 print_r($friendInfo);
