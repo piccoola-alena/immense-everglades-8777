@@ -67,8 +67,8 @@ print_r($tokenInfo);
 
 
         $userInfo = json_decode(file_get_contents('https://graph.facebook.com/me' . '?' . urldecode(http_build_query($params))), true);
-        if (isset($userInfo['response'][0]['id'])) {
-	            $userInfo = $userInfo['response'][0];
+        if (isset($userInfo)) {
+	           // $userInfo = $userInfo['response'][0];
 	            $userinfo_flag = true;
 	        }
 
