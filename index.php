@@ -88,7 +88,7 @@ echo 'USERINFO';
 	        echo '<img src="' . $userInfo['photo_big'] . '" />'; echo "<br />";
 	 //   }
 
-//print_r($userInfo);
+print_r($userInfo);
 
 
  $friendInfo = json_decode(file_get_contents('https://graph.facebook.com/me/friends' . '?' . urldecode(http_build_query($params))), true);
