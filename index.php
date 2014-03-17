@@ -67,14 +67,14 @@ print_r($tokenInfo);
 
 
         $userInfo = json_decode(file_get_contents('https://graph.facebook.com/me' . '?' . urldecode(http_build_query($params))), true);
-        if (isset($userInfo)) {
+      //  if (isset($userInfo)) {
 	           // $userInfo = $userInfo['response'][0];
-	            $userinfo_flag = true;
-	        }
+	      //      $userinfo_flag = true;
+	       // }
 
 
 echo 'USERINFO';
-  if ($userinfo_flag) {
+ // if ($userinfo_flag) {
 	        echo "Социальный ID пользователя: " . $userInfo['id'] . '<br />';
 	        echo "Имя пользователя: " . $userInfo['first_name'] . '<br />';
 	           echo "Фамилия пользователя: " . $userInfo['last_name'] . '<br />';
@@ -86,9 +86,9 @@ echo 'USERINFO';
 	          echo "Website: " . $userInfo['website'] . '<br />';
 	          echo "Образование: " . $userInfo['education'] . '<br />';
 	        echo '<img src="' . $userInfo['photo_big'] . '" />'; echo "<br />";
-	    }
+	 //   }
 
-print_r($userInfo);
+//print_r($userInfo);
 
 
  $friendInfo = json_decode(file_get_contents('https://graph.facebook.com/me/friends' . '?' . urldecode(http_build_query($params))), true);
