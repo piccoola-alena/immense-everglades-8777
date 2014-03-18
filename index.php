@@ -116,11 +116,11 @@ echo 'USERINFO';
 // echo "Дата создания: " . $userInfo['created_time'] . '<br />';
 
 
-// $friendInfo = json_decode(file_get_contents('https://graph.facebook.com/me/friends' . '?' . urldecode(http_build_query($params))), true);
-// echo 'FRIENDS';
-// print_r($friendInfo);
-// echo "Социальный ID пользователя: " . $userInfo['id'] . '<br />';
-// echo "Имя пользователя: " . $userInfo['name'] . '<br />';
+ $friendInfo = json_decode(file_get_contents('https://graph.facebook.com/me/friends' . '?' . urldecode(http_build_query($params))), true);
+ echo 'FRIENDS';
+ print_r($friendInfo);
+ echo "Социальный ID пользователя: " . $userInfo['id'] . '<br />';
+ echo "Имя пользователя: " . $userInfo['name'] . '<br />';
 
 
 
