@@ -85,6 +85,8 @@ echo 'USERINFO';
 	           echo "Email: " . $userInfo['email'] . '<br />';
 	          echo "Имя пользователя: " . $userInfo['username'] . '<br />';
 	        
+	        
+	        print_r($userInfo['work'])
      foreach ($userInfo['work'] as $work)
  	         echo "Работа: " ;  print_r($work['name']);  echo '<br />';
 	         
