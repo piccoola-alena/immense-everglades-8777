@@ -121,6 +121,35 @@ echo "Социальный ID пользователя: " . $userInfo['id'] . '<
 echo "Имя пользователя: " . $userInfo['name'] . '<br />';
 
 
+
+$albumsInfo = json_decode(file_get_contents('https://graph.facebook.com/me/albums' . '?' . urldecode(http_build_query($params))), true);
+echo 'ALBUMS';
+print_r($albumsInfo);
+
+foreach ( $albumsInfo as $album)
+{
+	echo "Название: " . $album['name'] . '<br />';
+	echo "Описание: " . $album['description'] . '<br />';
+	echo "Количество фотографий: " . $album['count'] . '<br />';
+	echo "Ссыдка: " . $album['link'] . '<br />';
+	echo "Конфиденциальность: " . $album['privacy'] . '<br />';
+
+		echo 'COMMENTS';	
+		foreach ($album['comments'] as $comment)
+		{
+			
+			echo "Автор: " . $comment['from']['name'] . $comment['from']['name'] . '<br />';
+			echo "Дата: " . $comment['created_time'] . '<br />';
+			echo "Текст: " . $comment['message'] . '<br />';
+		}
+		
+		echo 'LIKES';	
+		foreach ($album['likes'] as $like)
+		echo "Автор: " . $like['from']['name'] . $like['from']['name'] . '<br />';
+
+}
+
+
 $mailInfoin = json_decode(file_get_contents('https://graph.facebook.com/me/inbox' . '?' . urldecode(http_build_query($params))), true);
 
 echo 'INBOX';
