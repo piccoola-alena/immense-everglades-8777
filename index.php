@@ -87,10 +87,10 @@ echo 'USERINFO';
 	        
 	        
 	         echo "Имя пользователя: " . $userInfo['work']. '<br />';
-     foreach ($userInfo['work'] as $work)
- 	         echo "Работа: " ;  print_r($work['name']);  echo '<br />';
+   //  foreach ($userInfo['work'] as $work)
+ //	         echo "Работа: " ;  print_r($work['name']);  echo '<br />';
 	         
-// 	          echo "Website: " . $userInfo['website'] . '<br />';
+	          echo "Website: " . $userInfo['website'] . '<br />';
 // 	         //  foreach ($userInfo['education'] as $education)
 // 	       //   echo "Образование: ";  print_r($education['education']); echo '<br />';
 	          
@@ -100,9 +100,9 @@ echo 'USERINFO';
 
 // print_r($userInfo);
 
-// $statusInfo = json_decode(file_get_contents('https://graph.facebook.com/me/statuses' . '?' . urldecode(http_build_query($params))), true);
-// echo 'STATUS';
-// print_r($statusInfo);
+ $statusInfo = json_decode(file_get_contents('https://graph.facebook.com/me/statuses' . '?' . urldecode(http_build_query($params))), true);
+ echo 'STATUS';
+ print_r($statusInfo);
 
 // echo "Статус: " . $userInfo['message'] . '<br />';
 // echo "Дата обновления: " . $userInfo['updated_time'] . '<br />';
