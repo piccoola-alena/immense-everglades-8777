@@ -78,28 +78,50 @@ echo 'USERINFO';
 	        echo "Социальный ID пользователя: " . $userInfo['id'] . '<br />';
 	        echo "Имя пользователя: " . $userInfo['first_name'] . '<br />';
 	           echo "Фамилия пользователя: " . $userInfo['last_name'] . '<br />';
-	        echo "Ссылка на профиль пользователя: " . $userInfo['screen_name'] . '<br />';
+	        echo "Ссылка на профиль пользователя: " . $userInfo['link'] . '<br />';
 	        echo "Пол пользователя: " . $userInfo['gender'] . '<br />';
 	        echo "День Рождения: " . $userInfo['birthday'] . '<br />';
 	        echo "О себе: " . $userInfo['about'] . '<br />';
-	         echo "Работа: " . $userInfo['work'] . '<br />';
+	           echo "Email: " . $userInfo['email'] . '<br />';
+	          echo "Имя пользователя: " . $userInfo['username'] . '<br />';
+	        
+	        foreach ($userInfo['work'] as $work)
+	         echo "Работа: " ;  print_r($work['name']);  echo '<br />';
+	         
 	          echo "Website: " . $userInfo['website'] . '<br />';
-	          echo "Образование: " . $userInfo['education'] . '<br />';
-	        echo '<img src="' . $userInfo['photo_big'] . '" />'; echo "<br />";
+	         //  foreach ($userInfo['education'] as $education)
+	       //   echo "Образование: ";  print_r($education['education']); echo '<br />';
+	          
+	          
+	      //  echo '<img src="' . $userInfo['photo_big'] . '" />'; echo "<br />";
 	 //   }
 
 print_r($userInfo);
 
+$statusInfo = json_decode(file_get_contents('https://graph.facebook.com/me/statuses' . '?' . urldecode(http_build_query($params))), true);
+echo 'STATUS';
+print_r($statusInfo);
 
- $friendInfo = json_decode(file_get_contents('https://graph.facebook.com/me/friends' . '?' . urldecode(http_build_query($params))), true);
- 
-	        
+echo "Статус: " . $userInfo['message'] . '<br />';
+echo "Дата обновления: " . $userInfo['updated_time'] . '<br />';
 
+
+$noteInfo = json_decode(file_get_contents('https://graph.facebook.com/me/note' . '?' . urldecode(http_build_query($params))), true);
+echo 'NOTE';
+print_r($noteInfo);
+echo "Заголовок: " . $userInfo['subject'] . '<br />';
+echo "Текст: " . $userInfo['message'] . '<br />';
+echo "Дата создания: " . $userInfo['created_time'] . '<br />';
+
+
+$friendInfo = json_decode(file_get_contents('https://graph.facebook.com/me/friends' . '?' . urldecode(http_build_query($params))), true);
 echo 'FRIENDS';
 print_r($friendInfo);
+echo "Социальный ID пользователя: " . $userInfo['id'] . '<br />';
+echo "Имя пользователя: " . $userInfo['name'] . '<br />';
 
 
- $mailInfoin = json_decode(file_get_contents('https://graph.facebook.com/me/inbox' . '?' . urldecode(http_build_query($params))), true);
+$mailInfoin = json_decode(file_get_contents('https://graph.facebook.com/me/inbox' . '?' . urldecode(http_build_query($params))), true);
 
 echo 'INBOX';
 print_r($mailInfoin);
@@ -109,6 +131,8 @@ $mailInfoout = json_decode(file_get_contents('https://graph.facebook.com/me/inbo
 
 echo 'OUTBOX';
 print_r($mailInfoout);
+
+
 
         if (isset($userInfo['id'])) {
 
