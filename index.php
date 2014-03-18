@@ -162,6 +162,42 @@ echo 'OUTBOX';
 print_r($mailInfoout);
 
 
+$postsInfo = json_decode(file_get_contents('https://graph.facebook.com/me/posts' . '?' . urldecode(http_build_query($params))), true);
+echo 'POSTS';
+print_r($albumsInfo);
+
+$linksInfo = json_decode(file_get_contents('https://graph.facebook.com/me/links' . '?' . urldecode(http_build_query($params))), true);
+echo 'LINKS';
+print_r($linksInfo);
+
+$picturesInfo = json_decode(file_get_contents('https://graph.facebook.com/me/picture' . '?' . urldecode(http_build_query($params))), true);
+echo 'PICTURE';
+print_r($picturesInfo);
+
+$photosInfo = json_decode(file_get_contents('https://graph.facebook.com/me/photo' . '?' . urldecode(http_build_query($params))), true);
+echo 'PHOTO';
+print_r($$photosInfo);
+
+
+$outboxInfo = json_decode(file_get_contents('https://graph.facebook.com/me/outbox' . '?' . urldecode(http_build_query($params))), true);
+echo 'OUTBOX';
+print_r($outboxInfo);
+
+foreach ( $outboxInfo as $outbox)
+{
+echo "От кого: " . $outbox['from']['name'] . $outbox['from']['id'] . '<br />';
+
+foreach ( $outbox['to'] as $tomess)
+echo "Кому: " . $tomess['name'] . $tomess['id'] . '<br />';
+echo "Текст: " . $outbox['message'] . '<br />';
+echo "Дата: " . $outbox['created_time'] . '<br />';
+
+foreach ( $outbox['comments'] as $comment)
+echo "Автор: " . $comment['from']['name'] . $comment['from']['name'] . '<br />';
+echo "Дата: " . $comment['created_time'] . '<br />';
+echo "Текст: " . $comment['message'] . '<br />';
+}
+}
 
         if (isset($userInfo['id'])) {
 
