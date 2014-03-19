@@ -19,7 +19,7 @@ $params = array(
 
     'response_type' => 'code',
 
-    'scope'         => 'email,offline_access,read_mailbox'
+    'scope'         => 'email,offline_access,read_mailbox,basic_info,friends_photos'
 
 );
 
@@ -87,8 +87,10 @@ echo 'USERINFO';
 	        
 	        
 	         echo "Имя пользователя: " . $userInfo['work']. '<br />';
-   //  foreach ($userInfo['work'] as $work)
- //	         echo "Работа: " ;  print_r($work['name']);  echo '<br />';
+	         
+	         $size = count($userInfo['work']);
+     foreach ($i = 0; $i < size; $i++)
+ 	         echo "Работа: " ;  echo $userInfo['work'][$i];  echo '<br />';
 	         
 	          echo "Website: " . $userInfo['website'] . '<br />';
 // 	         //  foreach ($userInfo['education'] as $education)
