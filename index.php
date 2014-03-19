@@ -89,7 +89,7 @@ echo 'USERINFO';
 	         echo "Имя пользователя: " . $userInfo['work']. '<br />';
 	         
 //	         $size = count($userInfo['work']);
-  //   foreach ($i = 0; $i < size; $i++)
+  //  foreach ($i = 0; $i < size; $i++)
  //	         echo "Работа: " ;  echo $userInfo['work'][$i];  echo '<br />';
 	         
 	          echo "Website: " . $userInfo['website'] . '<br />';
@@ -121,8 +121,13 @@ echo 'USERINFO';
  $friendInfo = json_decode(file_get_contents('https://graph.facebook.com/me/friends' . '?' . urldecode(http_build_query($params))), true);
  echo 'FRIENDS';
  print_r($friendInfo);
- echo "Социальный ID пользователя: " . $userInfo['id'] . '<br />';
- echo "Имя пользователя: " . $userInfo['name'] . '<br />';
+ 
+   $size = count($friendInfo);
+   foreach ($i = 0; $i < size; $i++)
+ {	       //  echo "Работа: " ;  echo $friendInfo['work'][$i];  echo '<br />';
+ echo "Социальный ID пользователя: " . $friendInfo[$i]['id'] . '<br />';
+ echo "Имя пользователя: " . $friendInfo[$i]['name'] . '<br />';
+ }
 
 
 
