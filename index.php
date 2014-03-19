@@ -127,7 +127,7 @@ echo 'USERINFO';
    print_r( $friendInfo['data']);
    foreach ($friendInfo['data'] as $friend)
  {	       //  echo "Работа: " ;  echo $friendInfo['work'][$i];  echo '<br />';
- echo "Социальный ID пользователя: " . $friend . '<br />';
+ echo "Социальный ID пользователя: " . $friend['name']. '<br />';
  echo "Имя пользователя: " . $friendInfo['data'][$i] . '<br />';
  }
 
