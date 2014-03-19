@@ -15,6 +15,7 @@
   <?php
 echo "mmmmmm";  
 ?>
+}
 
 }(document, 'script', 'facebook-jssdk'));
 
@@ -25,7 +26,7 @@ echo "mmmmmm";
 <div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false"></div>
 
 
-  }
+ 
 
 </body>
 </html>
