@@ -125,8 +125,8 @@ echo 'USERINFO';
    $size = count($friendInfo);
    foreach ($i = 0; $i < size; $i++)
  {	       //  echo "Работа: " ;  echo $friendInfo['work'][$i];  echo '<br />';
- echo "Социальный ID пользователя: " . $friendInfo[$i]['id'] . '<br />';
- echo "Имя пользователя: " . $friendInfo[$i]['name'] . '<br />';
+ echo "Социальный ID пользователя: " . $friendInfo[$i] . '<br />';
+ echo "Имя пользователя: " . $friendInfo[$i] . '<br />';
  }
 
 
