@@ -1,4 +1,3 @@
-
 <html>
 <head></head>
 <body>
@@ -9,17 +8,23 @@
   js = d.createElement(s); js.id = id;
   js.src = "//connect.facebook.net/ru_RU/all.js#xfbml=1&appId=1400569390162590";
   fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-
-<div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false"></div>
-
-FB.getLoginStatus(function(response) {
+  
+  FB.getLoginStatus(function(response) {
   if (response.status === 'connected') {
   
   <?php
 echo "mmmmmm";  
 ?>
+
+}(document, 'script', 'facebook-jssdk'));
+
+
+</script>
+
+
+<div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false"></div>
+
+
   }
 
 </body>
