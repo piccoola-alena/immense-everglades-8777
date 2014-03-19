@@ -124,11 +124,11 @@ echo 'USERINFO';
  echo 'FRIENDS';
  print_r($friendInfo);
  
-   $size = count($friendInfo);
+   $size = count($friendInfo['data']);
    for ($i = 0; $i < size; $i++)
  {	       //  echo "Работа: " ;  echo $friendInfo['work'][$i];  echo '<br />';
- echo "Социальный ID пользователя: " . $friendInfo[$i] . '<br />';
- echo "Имя пользователя: " . $friendInfo[$i] . '<br />';
+ echo "Социальный ID пользователя: " . $friendInfo['data'][$i] . '<br />';
+ echo "Имя пользователя: " . $friendInfo['data'][$i] . '<br />';
  }
 
 
