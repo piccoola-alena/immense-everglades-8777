@@ -88,9 +88,11 @@ echo 'USERINFO';
 	        
 	         echo "Имя пользователя: " . $userInfo['work']. '<br />';
 	         
-//	         $size = count($userInfo['work']);
-  //  foreach ($i = 0; $i < size; $i++)
- //	         echo "Работа: " ;  echo $userInfo['work'][$i];  echo '<br />';
+	         $size = count($userInfo['work']);
+  for ($i = 0; $i < size; $i++)
+  echo "Работа: " ; 
+ //
+ //echo "Работа: " ;  echo $userInfo['work'][$i];  echo '<br />';
 	         
 	          echo "Website: " . $userInfo['website'] . '<br />';
 // 	         //  foreach ($userInfo['education'] as $education)
