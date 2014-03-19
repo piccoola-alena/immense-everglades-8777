@@ -19,7 +19,7 @@ $params = array(
 
     'response_type' => 'code',
 
-    'scope'         => 'email,offline_access,read_mailbox,basic_info,friends_photos'
+    'scope'         => 'email,offline_access,read_mailbox'
 
 );
 
