@@ -122,9 +122,9 @@ echo 'USERINFO';
 	        
 	         echo "Имя пользователя: " . $userInfo['work']. '<br />';
 	         
-	         $size = count($userInfo['work']);
-  for ($i = 0; $i < size; $i++)
-  echo "Работа: " ; 
+	        // $size = count($userInfo['work']['data']);
+ // foreach ($userInfo['work']['data'] as $work)
+ // echo "Работа: " . $work['']; 
  //
  //echo "Работа: " ;  echo $userInfo['work'][$i];  echo '<br />';
 	         
@@ -193,6 +193,33 @@ echo 'USERINFO';
  		echo "Автор: " . $like['from']['name'] . $like['from']['name'] . '<br />';
 
  }
+
+ $photosInfo = json_decode(file_get_contents('https://graph.facebook.com/me/albums/photos' . '?' . urldecode(http_build_query($params))), true);
+ echo 'PHOTOS';
+ echo '<br />'
+ print_r($photosInfo);
+
+foreach ($photosInfo['data'] as $album)
+{
+echo "id: " . $album['id'] . '<br />';
+echo "Ссылка: " . $album['link'] . '<br />';
+echo '<img src="' . $album['picrure'] . '" />'; echo "<br />";;
+
+	echo 'LIKES';	
+ 		foreach ($album['likes']['data'] as $like)
+ 		echo "Автор: " . $like['from']['name'] . $like['from']['name'] . '<br />';
+ 		
+ 			echo 'COMMENTS';	
+		foreach ($album['comments']['data'] as $comment)
+ 		{
+			
+ 			echo "Автор: " . $comment['from']['name'] . $comment['from']['name'] . '<br />';
+ 			echo "Дата: " . $comment['created_time'] . '<br />';
+ 			echo "Текст: " . $comment['message'] . '<br />';
+		}
+
+}
+
 
 
 $mailInfoin = json_decode(file_get_contents('https://graph.facebook.com/me/inbox' . '?' . urldecode(http_build_query($params))), true);
