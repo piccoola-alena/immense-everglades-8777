@@ -180,6 +180,7 @@ echo 'USERINFO';
  	echo "Конфиденциальность: " . $album['privacy'] . '<br />';
 
  		echo 'COMMENTS';
+ 		
  		 echo '<br />';
 		foreach ($album['comments']['data'] as $comment)
  		{
@@ -208,8 +209,10 @@ echo "id: " . $album['id'] . '<br />';
 echo "Ссылка: " . $album['link'] . '<br />';
 echo '<img src="' . $album['picrure'] . '" />'; echo "<br />";;
 
-	echo 'LIKES';	
+	echo 'LIKES';
+	
 	echo '<br />';
+	print_r($album['likes']);
  		foreach ($album['likes']['data'] as $like)
  		echo "Автор: " . $like['from']['name'] . $like['from']['name'] . '<br />';
  		
