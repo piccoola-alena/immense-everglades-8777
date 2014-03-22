@@ -9,15 +9,15 @@
   js.src = "//connect.facebook.net/ru_RU/all.js#xfbml=1&appId=1400569390162590";
   fjs.parentNode.insertBefore(js, fjs);
   
-  FB.getLoginStatus(function(response) {
-  if (response.status === 'connected') {
+//   FB.getLoginStatus(function(response) {
+//   if (response.status === 'connected') {
   
-  <?php
-echo "mmmmmm";  
-?>
-}
+//   <?php
+// echo "mmmmmm";  
+// ?>
+// }
 
-}(document, 'script', 'facebook-jssdk'));
+}(document, 'script', 'facebook-jssdk');
 
 
 </script>
