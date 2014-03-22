@@ -169,7 +169,7 @@ echo 'USERINFO';
   $albumsInfo = json_decode(file_get_contents('https://graph.facebook.com/me/albums' . '?' . urldecode(http_build_query($params))), true);
   echo 'ALBUMS';
   echo '<br />';
- print_r($albumsInfo);
+ //print_r($albumsInfo);
 
  foreach ( $albumsInfo['data'] as $album)
  {
@@ -193,34 +193,37 @@ echo 'USERINFO';
  		 echo '<br />';
  		foreach ($album['likes']['data'] as $like)
  		echo "Автор: " . $like['from']['name'] . $like['from']['name'] . '<br />';
+ 		echo '<br />';
 
  }
 
-//  $photosInfo = json_decode(file_get_contents('https://graph.facebook.com/me/albums/photos' . '?' . urldecode(http_build_query($params))), true);
-//  echo 'PHOTOS';
-//  echo '<br />'
-//  print_r($photosInfo);
+ $photosInfo = json_decode(file_get_contents('https://graph.facebook.com/me/albums/photos' . '?' . urldecode(http_build_query($params))), true);
+ echo 'PHOTOS';
+ echo '<br />';
+ print_r($photosInfo);
 
-// foreach ($photosInfo['data'] as $album)
-// {
-// echo "id: " . $album['id'] . '<br />';
-// echo "Ссылка: " . $album['link'] . '<br />';
-// echo '<img src="' . $album['picrure'] . '" />'; echo "<br />";;
+foreach ($photosInfo['data'] as $album)
+{
+echo "id: " . $album['id'] . '<br />';
+echo "Ссылка: " . $album['link'] . '<br />';
+echo '<img src="' . $album['picrure'] . '" />'; echo "<br />";;
 
-// 	echo 'LIKES';	
-//  		foreach ($album['likes']['data'] as $like)
-//  		echo "Автор: " . $like['from']['name'] . $like['from']['name'] . '<br />';
+	echo 'LIKES';	
+	echo '<br />';
+ 		foreach ($album['likes']['data'] as $like)
+ 		echo "Автор: " . $like['from']['name'] . $like['from']['name'] . '<br />';
  		
-//  			echo 'COMMENTS';	
-// 		foreach ($album['comments']['data'] as $comment)
-//  		{
+ 			echo 'COMMENTS';
+ 			echo '<br />';
+		foreach ($album['comments']['data'] as $comment)
+ 		{
 			
-//  			echo "Автор: " . $comment['from']['name'] . $comment['from']['name'] . '<br />';
-//  			echo "Дата: " . $comment['created_time'] . '<br />';
-//  			echo "Текст: " . $comment['message'] . '<br />';
-// 		}
-
-// }
+ 			echo "Автор: " . $comment['from']['name'] . $comment['from']['name'] . '<br />';
+ 			echo "Дата: " . $comment['created_time'] . '<br />';
+ 			echo "Текст: " . $comment['message'] . '<br />';
+		}
+echo '<br />';
+}
 
 
 
