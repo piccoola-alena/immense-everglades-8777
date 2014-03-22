@@ -166,77 +166,77 @@ echo 'USERINFO';
 
 
 
- $albumsInfo = json_decode(file_get_contents('https://graph.facebook.com/me/albums' . '?' . urldecode(http_build_query($params))), true);
- echo 'ALBUMS';
- echo '<br />'
- print_r($albumsInfo);
+//  $albumsInfo = json_decode(file_get_contents('https://graph.facebook.com/me/albums' . '?' . urldecode(http_build_query($params))), true);
+//  echo 'ALBUMS';
+//  echo '<br />'
+//  print_r($albumsInfo);
 
- foreach ( $albumsInfo['data'] as $album)
- {
- 	echo "Название: " . $album['name'] . '<br />';
- 	echo "Описание: " . $album['description'] . '<br />';
- 	echo "Количество фотографий: " . $album['count'] . '<br />';
- 	echo "Ссыдка: " . $album['link'] . '<br />';
- 	echo "Конфиденциальность: " . $album['privacy'] . '<br />';
+//  foreach ( $albumsInfo['data'] as $album)
+//  {
+//  	echo "Название: " . $album['name'] . '<br />';
+//  	echo "Описание: " . $album['description'] . '<br />';
+//  	echo "Количество фотографий: " . $album['count'] . '<br />';
+//  	echo "Ссыдка: " . $album['link'] . '<br />';
+//  	echo "Конфиденциальность: " . $album['privacy'] . '<br />';
 
- 		echo 'COMMENTS';	
-		foreach ($album['comments']['data'] as $comment)
- 		{
+//  		echo 'COMMENTS';	
+// 		foreach ($album['comments']['data'] as $comment)
+//  		{
 			
- 			echo "Автор: " . $comment['from']['name'] . $comment['from']['name'] . '<br />';
- 			echo "Дата: " . $comment['created_time'] . '<br />';
- 			echo "Текст: " . $comment['message'] . '<br />';
-		}
+//  			echo "Автор: " . $comment['from']['name'] . $comment['from']['name'] . '<br />';
+//  			echo "Дата: " . $comment['created_time'] . '<br />';
+//  			echo "Текст: " . $comment['message'] . '<br />';
+// 		}
 		
- 		echo 'LIKES';	
- 		foreach ($album['likes']['data'] as $like)
- 		echo "Автор: " . $like['from']['name'] . $like['from']['name'] . '<br />';
+//  		echo 'LIKES';	
+//  		foreach ($album['likes']['data'] as $like)
+//  		echo "Автор: " . $like['from']['name'] . $like['from']['name'] . '<br />';
 
- }
+//  }
 
- $photosInfo = json_decode(file_get_contents('https://graph.facebook.com/me/albums/photos' . '?' . urldecode(http_build_query($params))), true);
- echo 'PHOTOS';
- echo '<br />'
- print_r($photosInfo);
+//  $photosInfo = json_decode(file_get_contents('https://graph.facebook.com/me/albums/photos' . '?' . urldecode(http_build_query($params))), true);
+//  echo 'PHOTOS';
+//  echo '<br />'
+//  print_r($photosInfo);
 
-foreach ($photosInfo['data'] as $album)
-{
-echo "id: " . $album['id'] . '<br />';
-echo "Ссылка: " . $album['link'] . '<br />';
-echo '<img src="' . $album['picrure'] . '" />'; echo "<br />";;
+// foreach ($photosInfo['data'] as $album)
+// {
+// echo "id: " . $album['id'] . '<br />';
+// echo "Ссылка: " . $album['link'] . '<br />';
+// echo '<img src="' . $album['picrure'] . '" />'; echo "<br />";;
 
-	echo 'LIKES';	
- 		foreach ($album['likes']['data'] as $like)
- 		echo "Автор: " . $like['from']['name'] . $like['from']['name'] . '<br />';
+// 	echo 'LIKES';	
+//  		foreach ($album['likes']['data'] as $like)
+//  		echo "Автор: " . $like['from']['name'] . $like['from']['name'] . '<br />';
  		
- 			echo 'COMMENTS';	
-		foreach ($album['comments']['data'] as $comment)
- 		{
+//  			echo 'COMMENTS';	
+// 		foreach ($album['comments']['data'] as $comment)
+//  		{
 			
- 			echo "Автор: " . $comment['from']['name'] . $comment['from']['name'] . '<br />';
- 			echo "Дата: " . $comment['created_time'] . '<br />';
- 			echo "Текст: " . $comment['message'] . '<br />';
-		}
+//  			echo "Автор: " . $comment['from']['name'] . $comment['from']['name'] . '<br />';
+//  			echo "Дата: " . $comment['created_time'] . '<br />';
+//  			echo "Текст: " . $comment['message'] . '<br />';
+// 		}
 
-}
+// }
 
 
 
-$mailInfoin = json_decode(file_get_contents('https://graph.facebook.com/me/inbox' . '?' . urldecode(http_build_query($params))), true);
+// $mailInfoin = json_decode(file_get_contents('https://graph.facebook.com/me/inbox' . '?' . urldecode(http_build_query($params))), true);
 
-  echo 'INBOX';
+//   echo 'INBOX';
   
-  foreach ($mailInfoin['data'] as $inbox)
-  {
-  	echo "Участники: " ;
-  	foreach ($inbox['to']['data'] as $people)
-  		echo $people['name'] . $people['id'] . '<br />';
-  	echo "Диалог: " ;
-  	foreach ($inbox['comments']['data'] as $mess)
-  	{
-  		echo $mess['from']['name'] . $mess['created_time'] . $mess['message'] . '<br />';	
-  	}
-  }
+//   foreach ($mailInfoin['data'] as $inbox)
+//   {
+//   	echo "Участники: " ;
+//   	foreach ($inbox['to']['data'] as $people)
+//   		echo $people['name'] . $people['id'] . '<br />';
+//   	echo "Диалог: " ;
+//   	foreach ($inbox['comments']['data'] as $mess)
+//   	{
+//   		echo $mess['from']['name'] . $mess['created_time'] . $mess['message'] . '<br />';	
+//   	}
+//   }
 // print_r($mailInfoin);
 
 
