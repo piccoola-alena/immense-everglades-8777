@@ -161,7 +161,7 @@ echo 'USERINFO';
  
    // print_r( $friendInfo['data']);
     foreach ($friendInfo['data'] as $friend)
-    echo "Имя пользователя: " . $friend['name'] . $friend['id']. '<br />' ;
+    echo "Имя пользователя: " . $friend['name'] . '<br />' ;
 
 
 
