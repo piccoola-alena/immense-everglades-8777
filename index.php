@@ -157,42 +157,44 @@ echo 'USERINFO';
  $friendInfo = json_decode(file_get_contents('https://graph.facebook.com/me/friends' . '?' . urldecode(http_build_query($params))), true);
   echo 'FRIENDS';
  echo '<br />';
- print_r($friendInfo);
+ //print_r($friendInfo);
  
    // print_r( $friendInfo['data']);
     foreach ($friendInfo['data'] as $friend)
-   echo "Имя пользователя: " . $friend['name'] . ' (' .  $friend['id'] . ') '. '<br />' ;
+   echo $friend['name'] . ' (' .  $friend['id'] . ') '. '<br />' ;
 
 
 
 
-//  $albumsInfo = json_decode(file_get_contents('https://graph.facebook.com/me/albums' . '?' . urldecode(http_build_query($params))), true);
-//  echo 'ALBUMS';
-//  echo '<br />'
+  $albumsInfo = json_decode(file_get_contents('https://graph.facebook.com/me/albums' . '?' . urldecode(http_build_query($params))), true);
+  echo 'ALBUMS';
+  echo '<br />';
 //  print_r($albumsInfo);
 
-//  foreach ( $albumsInfo['data'] as $album)
-//  {
-//  	echo "Название: " . $album['name'] . '<br />';
-//  	echo "Описание: " . $album['description'] . '<br />';
-//  	echo "Количество фотографий: " . $album['count'] . '<br />';
-//  	echo "Ссыдка: " . $album['link'] . '<br />';
-//  	echo "Конфиденциальность: " . $album['privacy'] . '<br />';
+ foreach ( $albumsInfo['data'] as $album)
+ {
+ 	echo "Название: " . $album['name'] . '<br />';
+ 	echo "Описание: " . $album['description'] . '<br />';
+ 	echo "Количество фотографий: " . $album['count'] . '<br />';
+ 	echo "Ссыдка: " . $album['link'] . '<br />';
+ 	echo "Конфиденциальность: " . $album['privacy'] . '<br />';
 
-//  		echo 'COMMENTS';	
-// 		foreach ($album['comments']['data'] as $comment)
-//  		{
+ 		echo 'COMMENTS';
+ 		 echo '<br />';
+		foreach ($album['comments']['data'] as $comment)
+ 		{
 			
-//  			echo "Автор: " . $comment['from']['name'] . $comment['from']['name'] . '<br />';
-//  			echo "Дата: " . $comment['created_time'] . '<br />';
-//  			echo "Текст: " . $comment['message'] . '<br />';
-// 		}
+ 			echo "Автор: " . $comment['from']['name'] . $comment['from']['name'] . '<br />';
+ 			echo "Дата: " . $comment['created_time'] . '<br />';
+ 			echo "Текст: " . $comment['message'] . '<br />';
+		}
 		
-//  		echo 'LIKES';	
-//  		foreach ($album['likes']['data'] as $like)
-//  		echo "Автор: " . $like['from']['name'] . $like['from']['name'] . '<br />';
+ 		echo 'LIKES';	
+ 		 echo '<br />';
+ 		foreach ($album['likes']['data'] as $like)
+ 		echo "Автор: " . $like['from']['name'] . $like['from']['name'] . '<br />';
 
-//  }
+ }
 
 //  $photosInfo = json_decode(file_get_contents('https://graph.facebook.com/me/albums/photos' . '?' . urldecode(http_build_query($params))), true);
 //  echo 'PHOTOS';
