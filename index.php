@@ -17,7 +17,7 @@
 // ?>
 // }
 
-}(document, 'script', 'facebook-jssdk');
+}(document, 'script', 'facebook-jssdk'));
 
 
 </script>
@@ -154,14 +154,14 @@ echo 'USERINFO';
 // echo "Дата создания: " . $userInfo['created_time'] . '<br />';
 
 
- $friendInfo = json_decode(file_get_contents('https://graph.facebook.com/me/friends' . '?' . urldecode(http_build_query($params))), true);
- echo 'FRIENDS';
- echo '<br />'
-// print_r($friendInfo);
+//  $friendInfo = json_decode(file_get_contents('https://graph.facebook.com/me/friends' . '?' . urldecode(http_build_query($params))), true);
+//  echo 'FRIENDS';
+//  echo '<br />'
+// // print_r($friendInfo);
  
-  // print_r( $friendInfo['data']);
-   foreach ($friendInfo['data'] as $friend)
-   echo "Имя пользователя: " . $friend['name']. '  ' .  $friend['id']. '<br />' ;
+//   // print_r( $friendInfo['data']);
+//    foreach ($friendInfo['data'] as $friend)
+//    echo "Имя пользователя: " . $friend['name']. '  ' .  $friend['id']. '<br />' ;
 
 
 
