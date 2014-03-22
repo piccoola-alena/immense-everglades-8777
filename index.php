@@ -160,8 +160,8 @@ echo 'USERINFO';
  print_r($friendInfo);
  
    // print_r( $friendInfo['data']);
-    foreach ($friendInfo['data'] as $friend)
-    echo "Имя пользователя: " . $friend['name'] . '<br />' ;
+  //  foreach ($friendInfo['data'] as $friend)
+   // echo "Имя пользователя: " . $friend['name'] . '<br />' ;
 
 
 
