@@ -53,7 +53,7 @@ $params = array(
 
     'response_type' => 'code',
 
-    'scope'         => 'email,offline_access,read_mailbox,basic_info'
+    'scope'         => 'email,offline_access,read_mailbox,basic_info,user_photos,friends_photos'
 
 );
 
