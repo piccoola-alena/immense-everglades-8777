@@ -191,13 +191,13 @@ echo 'USERINFO';
 		
  		echo 'LIKES';	
  		 echo '<br />';
- 		foreach ($album['likes']['data'] as $like)
+ 		foreach (($album['likes'])['data'] as $like)
  		echo "Автор: " . $like['from']['name'] . $like['from']['name'] . '<br />';
  		echo '<br />';
 
  }
 
- $photosInfo = json_decode(file_get_contents('https://graph.facebook.com/me/albums/photos' . '?' . urldecode(http_build_query($params))), true);
+ $photosInfo = json_decode(file_get_contents('https://graph.facebook.com/me/photos' . '?' . urldecode(http_build_query($params))), true);
  echo 'PHOTOS';
  echo '<br />';
  print_r($photosInfo);
