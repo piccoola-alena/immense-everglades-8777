@@ -191,7 +191,7 @@ echo 'USERINFO';
 		
  		echo 'LIKES';	
  		 echo '<br />';
- 		foreach (($album['likes'])['data'] as $like)
+ 		foreach ($album['likes'] as $like)
  		echo "Автор: " . $like['from']['name'] . $like['from']['name'] . '<br />';
  		echo '<br />';
 
