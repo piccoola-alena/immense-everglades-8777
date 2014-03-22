@@ -169,7 +169,7 @@ echo 'USERINFO';
   $albumsInfo = json_decode(file_get_contents('https://graph.facebook.com/me/albums' . '?' . urldecode(http_build_query($params))), true);
   echo 'ALBUMS';
   echo '<br />';
-//  print_r($albumsInfo);
+ print_r($albumsInfo);
 
  foreach ( $albumsInfo['data'] as $album)
  {
