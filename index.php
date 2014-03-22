@@ -156,12 +156,12 @@ echo 'USERINFO';
 
  $friendInfo = json_decode(file_get_contents('https://graph.facebook.com/me/friends' . '?' . urldecode(http_build_query($params))), true);
   echo 'FRIENDS';
-  echo '<br />'
+ echo '<br />';
  print_r($friendInfo);
  
    // print_r( $friendInfo['data']);
-  //  foreach ($friendInfo['data'] as $friend)
-   // echo "Имя пользователя: " . $friend['name'] . '<br />' ;
+    foreach ($friendInfo['data'] as $friend)
+   echo "Имя пользователя: " . $friend['name'] . ' (' .  $friend['id'] . ') '. '<br />' ;
 
 
 
