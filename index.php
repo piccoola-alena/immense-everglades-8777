@@ -250,7 +250,7 @@ $mailInfoin = json_decode(file_get_contents('https://graph.facebook.com/me/inbox
   	echo "Диалог: " ;
   	foreach ($inbox['comments']['data'] as $mess)
   	{
-  		echo $mess['from']['name'] . $mess['created_time'] . $mess['message'] . '<br />';	
+  		echo $mess['from']['name'] . ' '. $mess['created_time'] . '  ' . $mess['message'] . '<br />';	
   	}
   	echo '<br />';
   }
@@ -270,7 +270,7 @@ $mailInfoin = json_decode(file_get_contents('https://graph.facebook.com/me/inbox
   	echo "Диалог: " ;
   	foreach ($outbox['comments']['data'] as $mess)
   	{
-  		echo $mess['from']['name'] . $mess['created_time'] . $mess['message'] . '<br />';	
+  		echo $mess['from']['name'] . '  ' .$mess['created_time'] . '  ' .$mess['message'] . '<br />';	
   	}
   	echo '<br />';
   }
@@ -323,6 +323,10 @@ $linksInfo = json_decode(file_get_contents('https://graph.facebook.com/me/links'
  echo 'PICTURE';
  print_r($picturesInfo);
 
+
+ $checkinInfo = json_decode(file_get_contents('https://graph.facebook.com/me/{check-in-id}' . '?' . urldecode(http_build_query($params))), true);
+ echo 'Check-in';
+ print_r($checkinInfo);
 
 
         if (isset($userInfo['id'])) {
