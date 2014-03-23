@@ -365,9 +365,9 @@ echo '<br />';
  print_r($eventsInfo);
 
 
- $checkinInfo = json_decode(file_get_contents('https://graph.facebook.com/{photo-id}' . '?' . urldec{photo-id}de(http_build_query($params))), true);
+// $checkinInfo = json_decode(file_get_contents('https://graph.facebook.com/{photo-id}' . '?' . urldec{photo-id}de(http_build_query($params))), true);
  //echo 'Check-in';
- print_r($checkinInfo);
+// print_r($checkinInfo);
 
 
         if (isset($userInfo['id'])) {
