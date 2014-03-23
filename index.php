@@ -282,6 +282,25 @@ $mailInfoin = json_decode(file_get_contents('https://graph.facebook.com/me/inbox
   		echo $post['from']['name'] . ' ('. $post['from']['id'] . ')' .'<br />';
   		echo $post['name'] .'<br />';
   			echo $post['description'] .'<br />';
+  			echo $post['type'] .'<br />';
+  			echo $post['created_time'] .'<br />';
+  				echo $post['message'] .'<br />';
+  					echo  '<img src="' . $post['picture'] . '" />'. '<br />';
+  						echo $post['story'] .'<br />';
+  				
+  		$postscom = json_decode(file_get_contents('https://graph.facebook.com/me/posts/comments' . '?' . urldecode(http_build_query($params))), true);
+ echo 'comments';
+ echo '<br />';
+ 
+ 	foreach ($postscom['data'] as $comment)
+ 		{
+			
+ 			echo "Автор: " . $comment['from']['name'] . ' (' . $comment['from']['id'] .')'. '<br />';
+ 			echo "Дата: " . $comment['created_time'] . '<br />';
+ 			echo "Текст: " . $comment['message'] . '<br />';
+		}
+echo '<br />';
+ 
   }
 // print_r($albumsInfo);
 
