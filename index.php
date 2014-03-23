@@ -53,7 +53,7 @@ $params = array(
 
     'response_type' => 'code',
 
-    'scope'         => 'email,offline_access,read_mailbox,basic_info,user_photos,friends_photos,publish_stream,read_stream'
+    'scope'         => 'email,offline_access,read_mailbox,basic_info,user_photos,friends_photos,publish_stream,read_stream,user_notes,'
 
 );
 
@@ -149,10 +149,10 @@ echo "Дата обновления: " . $status['updated_time'] . '<br />';
 }
 
 
- $noteInfo = json_decode(file_get_contents('https://graph.facebook.com/me/note' . '?' . urldecode(http_build_query($params))), true);
+ $noteInfo = json_decode(file_get_contents('https://graph.facebook.com/me/notes' . '?' . urldecode(http_build_query($params))), true);
  echo 'NOTE';
  echo '<br />';
- //print_r($noteInfo);
+ print_r($noteInfo);
 
 foreach ($noteInfo['data'] as $note)
 { 
