@@ -144,7 +144,7 @@ echo 'USERINFO';
 
 foreach ($statusInfo as $status)
 {
-echo "Статус: " . $status['message'] . '  '. '<br />';
+echo "Статус: " . $status['message'] . '<br />';
 echo "Дата обновления: " . $status['updated_time'] . '<br />';
 }
 
@@ -279,7 +279,7 @@ $mailInfoin = json_decode(file_get_contents('https://graph.facebook.com/me/inbox
  
  foreach ($postsInfo['data'] as $post)
   {
-  		echo $post['from']['name'] . ' (' $post['from']['id'] . ')' .'<br />';
+  		echo $post['from']['name'] . ' ('. $post['from']['id'] . ')' .'<br />';
   		echo $post['name'] .'<br />';
   			echo $post['description'] .'<br />';
   }
