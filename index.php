@@ -292,14 +292,20 @@ $mailInfoin = json_decode(file_get_contents('https://graph.facebook.com/me/inbox
  echo 'comments';
  echo '<br />';
  
- 	foreach ($postscom['data'] as $comment)
+ 	foreach ($postscom as $comment)
  		{
 			
  			echo "Автор: " . $comment['from']['name'] . ' (' . $comment['from']['id'] .')'. '<br />';
  			echo "Дата: " . $comment['created_time'] . '<br />';
  			echo "Текст: " . $comment['message'] . '<br />';
 		}
-echo '<br />';
+		$postslike = json_decode(file_get_contents('https://graph.facebook.com/me/posts/likes' . '?' . urldecode(http_build_query($params))), true);
+
+		echo 'LIKES';	
+ 		 echo '<br />';
+ 		foreach ($postslike['data'] as $like)
+ 		echo "Автор: " . $like['from']['name'] . $like['from']['id'] . '<br />';
+
  
   }
 // print_r($albumsInfo);
