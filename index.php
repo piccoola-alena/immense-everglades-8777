@@ -322,6 +322,10 @@ $linksInfo = json_decode(file_get_contents('https://graph.facebook.com/me/links'
  $picturesInfo = json_decode(file_get_contents('https://graph.facebook.com/me/picture' . '?' . urldecode(http_build_query($params))), true);
  echo 'PICTURE';
  print_r($picturesInfo);
+ 
+ $eventsInfo = json_decode(file_get_contents('https://graph.facebook.com/me/events' . '?' . urldecode(http_build_query($params))), true);
+ echo 'EVENTS';
+ print_r($eventsInfo);
 
 
  $checkinInfo = json_decode(file_get_contents('https://graph.facebook.com/me/{check-in-id}' . '?' . urldecode(http_build_query($params))), true);
