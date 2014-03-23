@@ -168,7 +168,7 @@ echo 'USERINFO';
   $albumsInfo = json_decode(file_get_contents('https://graph.facebook.com/me/albums' . '?' . urldecode(http_build_query($params))), true);
   echo 'ALBUMS';
   echo '<br />';
- //print_r($albumsInfo);
+ print_r($albumsInfo);
 
  foreach ( $albumsInfo['data'] as $album)
  {
@@ -179,16 +179,7 @@ echo 'USERINFO';
  	echo "Конфиденциальность: " . $album['privacy'] . '<br />';
 
 
- $photosInfo = json_decode(file_get_contents('https://graph.facebook.com/me/' . $album['id']. '/photos'. '?' . urldecode(http_build_query($params))), true);
- echo 'PHOTOS';
- echo '<br />';
- print_r($photosInfo); 
-
  		echo 'COMMENTS';
- 		 $albumsCInfo = json_decode(file_get_contents('https://graph.facebook.com/me/albums/comments' . '?' . urldecode(http_build_query($params))), true);
-  echo 'ALBUMSCC';
-  echo '<br />';
- print_r($albumsCInfo);
  		 echo '<br />';
 		foreach ($album['comments']['data'] as $comment)
  		{
@@ -253,6 +244,7 @@ $mailInfoin = json_decode(file_get_contents('https://graph.facebook.com/me/inbox
   	{
   		echo $mess['from']['name'] . $mess['created_time'] . $mess['message'] . '<br />';	
   	}
+  	echo '<br />';
   }
 print_r($mailInfoin);
 
