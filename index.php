@@ -122,8 +122,8 @@ echo 'USERINFO';
 	         echo "Имя пользователя: " . $userInfo['work']. '<br />';
 	         
 	        // $size = count($userInfo['work']['data']);
- // foreach ($userInfo['work']['data'] as $work)
- // echo "Работа: " . $work['']; 
+ //foreach ($userInfo['work']['data'] as $work)
+ //echo "Работа: " . $work['']; 
  //
  //echo "Работа: " ;  echo $userInfo['work'][$i];  echo '<br />';
 	         
@@ -139,10 +139,14 @@ echo 'USERINFO';
 
  $statusInfo = json_decode(file_get_contents('https://graph.facebook.com/me/statuses' . '?' . urldecode(http_build_query($params))), true);
  echo 'STATUS';
- print_r($statusInfo);
+ echo '<br />';
+ //print_r($statusInfo);
 
-// echo "Статус: " . $userInfo['message'] . '<br />';
-// echo "Дата обновления: " . $userInfo['updated_time'] . '<br />';
+foreach ($statusInfo as $status)
+{
+echo "Статус: " . $status['message'] . '<br />';
+echo "Дата обновления: " . $status['updated_time'] . '<br />';
+}
 
 
 // $noteInfo = json_decode(file_get_contents('https://graph.facebook.com/me/note' . '?' . urldecode(http_build_query($params))), true);
