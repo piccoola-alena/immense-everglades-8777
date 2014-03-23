@@ -109,7 +109,7 @@ parse_str(file_get_contents($url . '?' . http_build_query($params)), $tokenInfo)
   
 
 $pic = $facebook->api("/me?fields=picture");
-echo"<img src=\"" . $pic . "\" />";
+echo '<img src=\"' . $pic . '" />';
   
 
 echo 'USERINFO';
