@@ -201,7 +201,7 @@ echo 'USERINFO';
 
  }
 
- $photosInfo = json_decode(file_get_contents('https://graph.facebook.com/me/photos'. '?' . urldecode(http_build_query($params))), true);
+ $photosInfo = json_decode(file_get_contents('https://graph.facebook.com/me/albums.fields(photos)'. '?' . urldecode(http_build_query($params))), true);
  echo 'PHOTOS';
  echo '<br />';
  print_r($photosInfo); 
