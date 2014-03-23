@@ -250,10 +250,10 @@ $mailInfoin = json_decode(file_get_contents('https://graph.facebook.com/me/inbox
   	}
   	echo '<br />';
   }
-print_r($mailInfoin);
+//print_r($mailInfoin);
 
 
- $mailInfoout = json_decode(file_get_contents('https://graph.facebook.com/me/inbox' . '?' . urldecode(http_build_query($params))), true);
+ $mailInfoout = json_decode(file_get_contents('https://graph.facebook.com/me/outbox' . '?' . urldecode(http_build_query($params))), true);
 
 // echo 'OUTBOX';
 // print_r($mailInfoout);
@@ -273,8 +273,16 @@ print_r($mailInfoin);
 //print_r($mailInfoin);
 
 
-// $postsInfo = json_decode(file_get_contents('https://graph.facebook.com/me/posts' . '?' . urldecode(http_build_query($params))), true);
-// echo 'POSTS';
+ $postsInfo = json_decode(file_get_contents('https://graph.facebook.com/me/posts' . '?' . urldecode(http_build_query($params))), true);
+ echo 'POSTS';
+ echo '<br />';
+ 
+ foreach ($postsInfo['data'] as $post)
+  {
+  		echo $post['from']['name'] . ' (' $post['from']['id'] . ')' .'<br />';
+  		echo $post['name'] .'<br />';
+  			echo $post['description'] .'<br />';
+  }
 // print_r($albumsInfo);
 
 // $linksInfo = json_decode(file_get_contents('https://graph.facebook.com/me/links' . '?' . urldecode(http_build_query($params))), true);
