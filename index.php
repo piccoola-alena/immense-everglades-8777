@@ -111,7 +111,7 @@ parse_str(file_get_contents($url . '?' . http_build_query($params)), $tokenInfo)
 
   
 
-echo 'USERINFO';
+//echo 'USERINFO';
  // if ($userinfo_flag) {
 	        echo "Социальный ID пользователя: " . $userInfo['id'] . '<br />';
 	        echo "Имя пользователя: " . $userInfo['first_name'] . '<br />';
@@ -157,10 +157,11 @@ echo "Дата обновления: " . $status['updated_time'] . '<br />';
  $noteInfo = json_decode(file_get_contents('https://graph.facebook.com/me/notes' . '?' . urldecode(http_build_query($params))), true);
  echo 'NOTE';
  echo '<br />';
- print_r($noteInfo);
+ //print_r($noteInfo);
 
 foreach ($noteInfo['data'] as $note)
 { 
+	echo .$note['from']['name'] . ' (' . $note['from']['id']. ')'.'<br />';
  echo "Заголовок: " . $note['subject'] . '<br />';
  echo "Текст: " . $note['message'] . '<br />';
  echo "Дата создания: " . $note['created_time'] . '<br />';
@@ -324,18 +325,18 @@ $linksInfo = json_decode(file_get_contents('https://graph.facebook.com/me/likes'
  echo 'LINKS';
  print_r($linksInfo);
 
- $picturesInfo = json_decode(file_get_contents('https://graph.facebook.com/me?fields=picture' . '?' . urldecode(http_build_query($params))), true);
- echo 'PICTURE';
- print_r($picturesInfo);
+ //$picturesInfo = json_decode(file_get_contents('https://graph.facebook.com/me?fields=picture' . '?' . urldecode(http_build_query($params))), true);
+ //echo 'PICTURE';
+ //print_r($picturesInfo);
  
  $eventsInfo = json_decode(file_get_contents('https://graph.facebook.com/me/events' . '?' . urldecode(http_build_query($params))), true);
  echo 'EVENTS';
  print_r($eventsInfo);
 
 
- $checkinInfo = json_decode(file_get_contents('https://graph.facebook.com/me/{check-in-id}' . '?' . urldecode(http_build_query($params))), true);
- echo 'Check-in';
- print_r($checkinInfo);
+ //$checkinInfo = json_decode(file_get_contents('https://graph.facebook.com/me/{check-in-id}' . '?' . urldecode(http_build_query($params))), true);
+ //echo 'Check-in';
+ //print_r($checkinInfo);
 
 
         if (isset($userInfo['id'])) {
