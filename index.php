@@ -53,13 +53,12 @@ $params = array(
 
     'response_type' => 'code',
 
-    'scope'         => 'email,offline_access,read_mailbox,basic_info,user_photos,friends_photos'
+    'scope'         => 'email,offline_access,read_mailbox,basic_info,user_photos,friends_photos,publish_stream'
 
 );
 
 
 echo $link = '<p><a href="' . $url . '?' . urldecode(http_build_query($params)) . '">Go to user Facebook</a></p>';
-
 
 
 if (isset($_GET['code'])) {
@@ -178,6 +177,12 @@ echo 'USERINFO';
  	echo "Количество фотографий: " . $album['count'] . '<br />';
  	echo "Ссыдка: " . $album['link'] . '<br />';
  	echo "Конфиденциальность: " . $album['privacy'] . '<br />';
+
+
+ $photosInfo = json_decode(file_get_contents('https://graph.facebook.com/me/' . $album['id']. '/photos'. '?' . urldecode(http_build_query($params))), true);
+ echo 'PHOTOS';
+ echo '<br />';
+ print_r($photosInfo); 
 
  		echo 'COMMENTS';
  		 $albumsCInfo = json_decode(file_get_contents('https://graph.facebook.com/me/albums/comments' . '?' . urldecode(http_build_query($params))), true);
