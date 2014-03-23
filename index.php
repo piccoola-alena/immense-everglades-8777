@@ -140,9 +140,9 @@ echo 'USERINFO';
  $statusInfo = json_decode(file_get_contents('https://graph.facebook.com/me/statuses' . '?' . urldecode(http_build_query($params))), true);
  echo 'STATUS';
  echo '<br />';
- print_r($statusInfo);
+ //print_r($statusInfo);
 
-foreach ($statusInfo as $status)
+foreach ($statusInfo['data'] as $status)
 {
 echo "Статус: " . $status['message'] . '<br />';
 echo "Дата обновления: " . $status['updated_time'] . '<br />';
@@ -151,11 +151,14 @@ echo "Дата обновления: " . $status['updated_time'] . '<br />';
 
  $noteInfo = json_decode(file_get_contents('https://graph.facebook.com/me/note' . '?' . urldecode(http_build_query($params))), true);
  echo 'NOTE';
- print_r($noteInfo);
-// echo "Заголовок: " . $userInfo['subject'] . '<br />';
-// echo "Текст: " . $userInfo['message'] . '<br />';
-// echo "Дата создания: " . $userInfo['created_time'] . '<br />';
+ //print_r($noteInfo);
 
+foreach ($noteInfo['data'] as $note)
+{ 
+ echo "Заголовок: " . $note['subject'] . '<br />';
+ echo "Текст: " . $note['message'] . '<br />';
+ echo "Дата создания: " . $note['created_time'] . '<br />';
+}
 
  $friendInfo = json_decode(file_get_contents('https://graph.facebook.com/me/friends' . '?' . urldecode(http_build_query($params))), true);
   echo 'FRIENDS';
