@@ -106,13 +106,7 @@ parse_str(file_get_contents($url . '?' . http_build_query($params)), $tokenInfo)
 	       // }
 
 
-  $uid = $facebook->getUser();
-
-//create the url
-$profile_pic =  "http://graph.facebook.com/".$uid."/picture";
-
-//echo the image out
-echo "<img src=\"" . $profile_pic . "\" />";
+  
 
 $pic = $facebook->api("/me?fields=picture");
 echo"<img src=\"" . $pic . "\" />";
