@@ -141,7 +141,10 @@ parse_str(file_get_contents($url . '?' . http_build_query($params)), $tokenInfo)
 // 	 //   }
 
 // print_r($userInfo);
-
+ echo '<br />';
+ echo "_________________________________________________";
+ 
+ 
  $statusInfo = json_decode(file_get_contents('https://graph.facebook.com/me/statuses' . '?' . urldecode(http_build_query($params))), true);
  echo 'STATUS';
  echo '<br />';
@@ -153,7 +156,9 @@ echo "Статус: " . $status['message'] . '<br />';
 echo "Дата обновления: " . $status['updated_time'] . '<br />';
 }
 
-
+echo '<br />';
+ echo "_________________________________________________";
+ 
  $noteInfo = json_decode(file_get_contents('https://graph.facebook.com/me/notes' . '?' . urldecode(http_build_query($params))), true);
  echo 'NOTE';
  echo '<br />';
@@ -167,6 +172,9 @@ foreach ($noteInfo['data'] as $note)
  echo "Дата создания: " . $note['created_time'] . '<br />';
 }
 
+echo '<br />';
+ echo "_________________________________________________";
+ 
  $friendInfo = json_decode(file_get_contents('https://graph.facebook.com/me/friends' . '?' . urldecode(http_build_query($params))), true);
   echo 'FRIENDS';
  echo '<br />';
@@ -177,7 +185,9 @@ foreach ($noteInfo['data'] as $note)
    echo $friend['name'] . ' (' .  $friend['id'] . ') '. '<br />' ;
 
 
-
+echo '<br />';
+ echo "_________________________________________________";
+ 
 
   $albumsInfo = json_decode(file_get_contents('https://graph.facebook.com/me/albums' . '?' . urldecode(http_build_query($params))), true);
   echo 'ALBUMS';
@@ -211,6 +221,10 @@ foreach ($noteInfo['data'] as $note)
 
  }
 
+echo '<br />';
+ echo "_________________________________________________";
+ 
+ 
  $photosInfo = json_decode(file_get_contents('https://graph.facebook.com/me/photos'. '?' . urldecode(http_build_query($params))), true);
  echo 'PHOTOS';
  echo '<br />';
@@ -241,7 +255,9 @@ echo '<img src="' . $album['picrure'] . '" />'; echo "<br />";;
 echo '<br />';
 }
 
-
+echo '<br />';
+ echo "_________________________________________________";
+ 
 
 $mailInfoin = json_decode(file_get_contents('https://graph.facebook.com/me/inbox' . '?' . urldecode(http_build_query($params))), true);
 
@@ -261,7 +277,8 @@ $mailInfoin = json_decode(file_get_contents('https://graph.facebook.com/me/inbox
   	echo '<br />';
   }
 //print_r($mailInfoin);
-
+echo '<br />';
+ echo "_________________________________________________";
 
  $mailInfoout = json_decode(file_get_contents('https://graph.facebook.com/me/outbox' . '?' . urldecode(http_build_query($params))), true);
 
@@ -282,7 +299,9 @@ $mailInfoin = json_decode(file_get_contents('https://graph.facebook.com/me/inbox
   }
 //print_r($mailInfoin);
 
-
+echo '<br />';
+ echo "_________________________________________________";
+ 
  $postsInfo = json_decode(file_get_contents('https://graph.facebook.com/me/posts' . '?' . urldecode(http_build_query($params))), true);
  echo 'POSTS';
  echo '<br />';
@@ -320,7 +339,9 @@ $mailInfoin = json_decode(file_get_contents('https://graph.facebook.com/me/inbox
  
   }
 // print_r($albumsInfo);
-
+echo '<br />';
+ echo "_________________________________________________";
+ 
 $linksInfo = json_decode(file_get_contents('https://graph.facebook.com/me/likes' . '?' . urldecode(http_build_query($params))), true);
  echo 'LINKS';
  print_r($linksInfo);
@@ -328,6 +349,8 @@ $linksInfo = json_decode(file_get_contents('https://graph.facebook.com/me/likes'
  //$picturesInfo = json_decode(file_get_contents('https://graph.facebook.com/me?fields=picture' . '?' . urldecode(http_build_query($params))), true);
  //echo 'PICTURE';
  //print_r($picturesInfo);
+ echo '<br />';
+ echo "_________________________________________________";
  
  $eventsInfo = json_decode(file_get_contents('https://graph.facebook.com/me/events' . '?' . urldecode(http_build_query($params))), true);
  echo 'EVENTS';
