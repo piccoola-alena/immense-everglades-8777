@@ -238,22 +238,23 @@ echo '<br />';
 
 
 
-// $mailInfoin = json_decode(file_get_contents('https://graph.facebook.com/me/inbox' . '?' . urldecode(http_build_query($params))), true);
+$mailInfoin = json_decode(file_get_contents('https://graph.facebook.com/me/inbox' . '?' . urldecode(http_build_query($params))), true);
 
-//   echo 'INBOX';
+  echo 'INBOX';
+  echo '<br />';
   
-//   foreach ($mailInfoin['data'] as $inbox)
-//   {
-//   	echo "Участники: " ;
-//   	foreach ($inbox['to']['data'] as $people)
-//   		echo $people['name'] . $people['id'] . '<br />';
-//   	echo "Диалог: " ;
-//   	foreach ($inbox['comments']['data'] as $mess)
-//   	{
-//   		echo $mess['from']['name'] . $mess['created_time'] . $mess['message'] . '<br />';	
-//   	}
-//   }
-// print_r($mailInfoin);
+  foreach ($mailInfoin['data'] as $inbox)
+  {
+  	echo "Участники: " ;
+  	foreach ($inbox['to']['data'] as $people)
+  		echo $people['name'] . $people['id'] . '<br />';
+  	echo "Диалог: " ;
+  	foreach ($inbox['comments']['data'] as $mess)
+  	{
+  		echo $mess['from']['name'] . $mess['created_time'] . $mess['message'] . '<br />';	
+  	}
+  }
+print_r($mailInfoin);
 
 
 // $mailInfoout = json_decode(file_get_contents('https://graph.facebook.com/me/inbox' . '?' . urldecode(http_build_query($params))), true);
