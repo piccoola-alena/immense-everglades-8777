@@ -108,8 +108,7 @@ parse_str(file_get_contents($url . '?' . http_build_query($params)), $tokenInfo)
 
   
 
-$pic = $facebook->api("/me?fields=picture");
-echo '<img src=\"' . $pic . '" />';
+
   
 
 echo 'USERINFO';
@@ -321,11 +320,11 @@ $mailInfoin = json_decode(file_get_contents('https://graph.facebook.com/me/inbox
   }
 // print_r($albumsInfo);
 
-$linksInfo = json_decode(file_get_contents('https://graph.facebook.com/me/links' . '?' . urldecode(http_build_query($params))), true);
+$linksInfo = json_decode(file_get_contents('https://graph.facebook.com/me/likes' . '?' . urldecode(http_build_query($params))), true);
  echo 'LINKS';
  print_r($linksInfo);
 
- $picturesInfo = json_decode(file_get_contents('https://graph.facebook.com/me/picture' . '?' . urldecode(http_build_query($params))), true);
+ $picturesInfo = json_decode(file_get_contents('https://graph.facebook.com/me?fields=picture' . '?' . urldecode(http_build_query($params))), true);
  echo 'PICTURE';
  print_r($picturesInfo);
  
