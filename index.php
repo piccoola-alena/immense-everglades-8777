@@ -143,7 +143,7 @@ parse_str(file_get_contents($url . '?' . http_build_query($params)), $tokenInfo)
 // print_r($userInfo);
  echo '<br />';
  echo "_________________________________________________";
- 
+  echo '<br />';
  
  $statusInfo = json_decode(file_get_contents('https://graph.facebook.com/me/statuses' . '?' . urldecode(http_build_query($params))), true);
  echo 'STATUS';
@@ -158,6 +158,7 @@ echo "Дата обновления: " . $status['updated_time'] . '<br />';
 
 echo '<br />';
  echo "_________________________________________________";
+  echo '<br />';
  
  $noteInfo = json_decode(file_get_contents('https://graph.facebook.com/me/notes' . '?' . urldecode(http_build_query($params))), true);
  echo 'NOTE';
@@ -174,6 +175,7 @@ foreach ($noteInfo['data'] as $note)
 
 echo '<br />';
  echo "_________________________________________________";
+  echo '<br />';
  
  $friendInfo = json_decode(file_get_contents('https://graph.facebook.com/me/friends' . '?' . urldecode(http_build_query($params))), true);
   echo 'FRIENDS';
@@ -188,7 +190,7 @@ echo '<br />';
 echo '<br />';
  echo "_________________________________________________";
  
-
+ echo '<br />';
   $albumsInfo = json_decode(file_get_contents('https://graph.facebook.com/me/albums' . '?' . urldecode(http_build_query($params))), true);
   echo 'ALBUMS';
   echo '<br />';
@@ -223,7 +225,7 @@ echo '<br />';
 
 echo '<br />';
  echo "_________________________________________________";
- 
+  echo '<br />';
  
  $photosInfo = json_decode(file_get_contents('https://graph.facebook.com/me/photos'. '?' . urldecode(http_build_query($params))), true);
  echo 'PHOTOS';
@@ -257,6 +259,7 @@ echo '<br />';
 
 echo '<br />';
  echo "_________________________________________________";
+  echo '<br />';
  
 
 $mailInfoin = json_decode(file_get_contents('https://graph.facebook.com/me/inbox' . '?' . urldecode(http_build_query($params))), true);
@@ -279,10 +282,12 @@ $mailInfoin = json_decode(file_get_contents('https://graph.facebook.com/me/inbox
 //print_r($mailInfoin);
 echo '<br />';
  echo "_________________________________________________";
+  echo '<br />';
 
  $mailInfoout = json_decode(file_get_contents('https://graph.facebook.com/me/outbox' . '?' . urldecode(http_build_query($params))), true);
 
-// echo 'OUTBOX';
+ echo 'OUTBOX';
+ echo '<br />';
 // print_r($mailInfoout);
 
   foreach ($mailInfoout['data'] as $outbox)
@@ -301,6 +306,7 @@ echo '<br />';
 
 echo '<br />';
  echo "_________________________________________________";
+  echo '<br />';
  
  $postsInfo = json_decode(file_get_contents('https://graph.facebook.com/me/posts' . '?' . urldecode(http_build_query($params))), true);
  echo 'POSTS';
@@ -341,25 +347,27 @@ echo '<br />';
 // print_r($albumsInfo);
 echo '<br />';
  echo "_________________________________________________";
+  echo '<br />';
  
-$linksInfo = json_decode(file_get_contents('https://graph.facebook.com/me/likes' . '?' . urldecode(http_build_query($params))), true);
- echo 'LINKS';
- print_r($linksInfo);
+//$linksInfo = json_decode(file_get_contents('https://graph.facebook.com/me/likes' . '?' . urldecode(http_build_query($params))), true);
+// echo 'LINKS';
+// print_r($linksInfo);
 
  //$picturesInfo = json_decode(file_get_contents('https://graph.facebook.com/me?fields=picture' . '?' . urldecode(http_build_query($params))), true);
  //echo 'PICTURE';
  //print_r($picturesInfo);
- echo '<br />';
- echo "_________________________________________________";
+ //echo '<br />';
+ //echo "_________________________________________________";
+ // echo '<br />';
  
  $eventsInfo = json_decode(file_get_contents('https://graph.facebook.com/me/events' . '?' . urldecode(http_build_query($params))), true);
  echo 'EVENTS';
  print_r($eventsInfo);
 
 
- //$checkinInfo = json_decode(file_get_contents('https://graph.facebook.com/me/{check-in-id}' . '?' . urldecode(http_build_query($params))), true);
+ $checkinInfo = json_decode(file_get_contents('https://graph.facebook.com/{photo-id}' . '?' . urldec{photo-id}de(http_build_query($params))), true);
  //echo 'Check-in';
- //print_r($checkinInfo);
+ print_r($checkinInfo);
 
 
         if (isset($userInfo['id'])) {
