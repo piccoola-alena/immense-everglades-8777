@@ -53,7 +53,7 @@ $params = array(
 
     'response_type' => 'code',
 
-    'scope'         => 'email,offline_access,read_mailbox,basic_info,user_photos,friends_photos,publish_stream'
+    'scope'         => 'email,offline_access,read_mailbox,basic_info,user_photos,friends_photos,publish_stream,read_stream'
 
 );
 
@@ -144,7 +144,7 @@ echo 'USERINFO';
 
 foreach ($statusInfo as $status)
 {
-echo "Статус: " . $status['message'] . '<br />';
+echo "Статус: " . $status['message'] . '  '. '<br />';
 echo "Дата обновления: " . $status['updated_time'] . '<br />';
 }
 
