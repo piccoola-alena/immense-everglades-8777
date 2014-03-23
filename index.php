@@ -161,7 +161,7 @@ echo "Дата обновления: " . $status['updated_time'] . '<br />';
 
 foreach ($noteInfo['data'] as $note)
 { 
-	echo .$note['from']['name'] . ' (' . $note['from']['id']. ')'.'<br />';
+	echo  "Автор: " . $note['from']['name'] . ' (' . $note['from']['id']. ')'.'<br />';
  echo "Заголовок: " . $note['subject'] . '<br />';
  echo "Текст: " . $note['message'] . '<br />';
  echo "Дата создания: " . $note['created_time'] . '<br />';
