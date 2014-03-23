@@ -151,6 +151,7 @@ echo "Дата обновления: " . $status['updated_time'] . '<br />';
 
  $noteInfo = json_decode(file_get_contents('https://graph.facebook.com/me/note' . '?' . urldecode(http_build_query($params))), true);
  echo 'NOTE';
+ echo '<br />';
  //print_r($noteInfo);
 
 foreach ($noteInfo['data'] as $note)
@@ -175,7 +176,7 @@ foreach ($noteInfo['data'] as $note)
   $albumsInfo = json_decode(file_get_contents('https://graph.facebook.com/me/albums' . '?' . urldecode(http_build_query($params))), true);
   echo 'ALBUMS';
   echo '<br />';
- print_r($albumsInfo);
+// print_r($albumsInfo);
 
  foreach ( $albumsInfo['data'] as $album)
  {
@@ -204,7 +205,7 @@ foreach ($noteInfo['data'] as $note)
 
  }
 
- $photosInfo = json_decode(file_get_contents('https://graph.facebook.com/me/albums.fields(photos)'. '?' . urldecode(http_build_query($params))), true);
+ $photosInfo = json_decode(file_get_contents('https://graph.facebook.com/me/photos'. '?' . urldecode(http_build_query($params))), true);
  echo 'PHOTOS';
  echo '<br />';
  print_r($photosInfo); 
@@ -294,6 +295,7 @@ $mailInfoin = json_decode(file_get_contents('https://graph.facebook.com/me/inbox
   		$postscom = json_decode(file_get_contents('https://graph.facebook.com/me/posts/comments' . '?' . urldecode(http_build_query($params))), true);
  echo 'comments';
  echo '<br />';
+ print_r($postscom); 
  
  	foreach ($postscom as $comment)
  		{
