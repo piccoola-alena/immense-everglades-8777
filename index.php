@@ -180,7 +180,10 @@ echo 'USERINFO';
  	echo "Конфиденциальность: " . $album['privacy'] . '<br />';
 
  		echo 'COMMENTS';
- 		
+ 		 $albumsCInfo = json_decode(file_get_contents('https://graph.facebook.com/me/albums/comments' . '?' . urldecode(http_build_query($params))), true);
+  echo 'ALBUMSCC';
+  echo '<br />';
+ print_r($albumsCInfo);
  		 echo '<br />';
 		foreach ($album['comments']['data'] as $comment)
  		{
