@@ -140,7 +140,7 @@ echo 'USERINFO';
  $statusInfo = json_decode(file_get_contents('https://graph.facebook.com/me/statuses' . '?' . urldecode(http_build_query($params))), true);
  echo 'STATUS';
  echo '<br />';
- //print_r($statusInfo);
+ print_r($statusInfo);
 
 foreach ($statusInfo as $status)
 {
@@ -149,9 +149,9 @@ echo "Дата обновления: " . $status['updated_time'] . '<br />';
 }
 
 
-// $noteInfo = json_decode(file_get_contents('https://graph.facebook.com/me/note' . '?' . urldecode(http_build_query($params))), true);
-// echo 'NOTE';
-// print_r($noteInfo);
+ $noteInfo = json_decode(file_get_contents('https://graph.facebook.com/me/note' . '?' . urldecode(http_build_query($params))), true);
+ echo 'NOTE';
+ print_r($noteInfo);
 // echo "Заголовок: " . $userInfo['subject'] . '<br />';
 // echo "Текст: " . $userInfo['message'] . '<br />';
 // echo "Дата создания: " . $userInfo['created_time'] . '<br />';
@@ -253,10 +253,24 @@ $mailInfoin = json_decode(file_get_contents('https://graph.facebook.com/me/inbox
 print_r($mailInfoin);
 
 
-// $mailInfoout = json_decode(file_get_contents('https://graph.facebook.com/me/inbox' . '?' . urldecode(http_build_query($params))), true);
+ $mailInfoout = json_decode(file_get_contents('https://graph.facebook.com/me/inbox' . '?' . urldecode(http_build_query($params))), true);
 
 // echo 'OUTBOX';
 // print_r($mailInfoout);
+
+  foreach ($mailInfoout['data'] as $outbox)
+  {
+  	echo "Участники: " ;
+  	foreach ($outbox['to']['data'] as $people)
+  		echo $people['name'] . $people['id'] . '<br />';
+  	echo "Диалог: " ;
+  	foreach ($outbox['comments']['data'] as $mess)
+  	{
+  		echo $mess['from']['name'] . $mess['created_time'] . $mess['message'] . '<br />';	
+  	}
+  	echo '<br />';
+  }
+//print_r($mailInfoin);
 
 
 // $postsInfo = json_decode(file_get_contents('https://graph.facebook.com/me/posts' . '?' . urldecode(http_build_query($params))), true);
