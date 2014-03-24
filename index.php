@@ -223,14 +223,14 @@ echo '<br />';
 
  }
 
-echo '<br />';
- echo "_________________________________________________";
-  echo '<br />';
+//echo '<br />';
+// echo "_________________________________________________";
+ // echo '<br />';
  
  $photosInfo = json_decode(file_get_contents('https://graph.facebook.com/me/photos'. '?' . urldecode(http_build_query($params))), true);
- echo 'PHOTOS';
+// echo 'PHOTOS';
  echo '<br />';
- print_r($photosInfo); 
+ //print_r($photosInfo); 
 
 foreach ($photosInfo['data'] as $album)
 {
